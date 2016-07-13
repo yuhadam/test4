@@ -10,8 +10,14 @@ echo ADD exe1.sh /home/ >>Dockerfile
 echo RUN sudo apt-get update >>Dockerfile
 echo RUN sudo apt-get install -y ftp >> Dockerfile
 echo CMD /home/exe1.sh >> Dockerfile
-docker build --tag yhim/example .
-docker push yhim/example
+echo WORKDIR /home
+sudo docker build --tag yhim/example .
+sudo docker login -u "yuhadam" -p "k9460180" -e "yuhadam@naver.com"
+sudo docker push yhim/example
+sudo docker rmi yhim/example
+rm -rf test
+
+
 
 
 
